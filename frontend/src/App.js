@@ -1,3 +1,4 @@
+import AdminPanelPage from './pages/AdminPanelPage';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
@@ -37,6 +38,7 @@ function AppRoutes() {
       <Navbar />
       <main className="flex-1">
         <Routes>
+          <Route path="/admin" element={<ProtectedRoute roles={['admin']}><AdminPanelPage /></ProtectedRoute>} />
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<ProductDetailPage />} />
